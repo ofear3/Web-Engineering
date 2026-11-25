@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+<body>
+    <div>
+        <center>
+            <h1>Student Information Form</h1> </center>
+            <br>
+            <form id="stdform">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <br><label>First Name</label>
+                    <input type="text" id="fname" placeholder="e.g Mohammad" required>
+                    <br><br><label>Last Name</label>
+
+                    <input type="text" id="lname" placeholder="e.g Saif" required>
+                    <br><br><label>Email</label>
+                    <input type="email" id="email" placeholder="e.g m.saif@gmail.com" required>  
+
+                    <br><br><label>Age</label>
+                    <input type="number" id="age" placeholder="8-40" min="8" max="40" required>
+                    
+                    <br><br>
+                    <label>Gender</label>
+                    
+                    <input type="radio" id="male" name="gender" value="Male" checked required>
+                    <label for="male">Male</label>
+                    
+                    <input type="radio" id="female" name="gender" value="Female" required>
+                    <label for="female">Female</label>
+                </fieldset>
+<br> <br>
+                <fieldset>
+                    <legend>University Information</legend>
+                    <br>
+                    <lable>Student ID</lable>
+                    <input type="number" id="stdid" placeholder="e.g 22003" required>
+                    <br><br>
+                    <label>Session</label>
+                    <select id="session">
+                        <option value="2020-21">2020-21</option>
+                        <option value="2021-22">2021-22</option>
+                        <option value="2022-23">2022-23</option>
+                        <option value="2024-25">2024-25</option>
+                        <option value="2025-26">2025-26</option>
+                    </select>
+                    <br><br>
+                    <label>Department</label>
+                    <input type="radio" id="CSE" name="dept" value="CSE" checked required>
+                    <label for="male">CSE</label>
+                    
+                    <input type="radio" id="ECE" name="dept" value="ECE" required>
+                    <label for="female">ECE</label>
+
+                    <input type="radio" id="ECE" name="dept" value="BBA" required>
+                    <label for="female">BBA</label>
+                </fieldset>
+
+                <center>
+                    <br><br>
+                    <button type="submit">Submit</button>
+                </center>
+            </form>
+    </div>
+
+
+
+    <div>
+        <center><h1>Student Form Table</h1></center>
+<center>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Student ID</th>
+                <th>Session</th>
+                <th>Department</th>
+            </thead>
+
+            <tbody id="tablebody">            </tbody>
+        </table> </center>
+    </div>
+
+
+
+    <div>
+        <center><h1>Student Form List</h1></center>
+
+        <ol id="ol">   </ol>
+    </div>
+</body>
+
+
+<script>
+    var form = document.getElementById("stdform");
+    var tablebody = document.getElementById("tablebody");
+
+    form.addEventListener("submit" , function (event){
+        event.preventDefault() ;
+
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var name = fname + lname;
+        
+        var email = document.getElementById("email").value;
+        
+        var age = document.getElementById("age").value;
+
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+
+        var stdid = document.getElementById("stdid").value;
+
+        var session = document.getElementById("session").value;
+
+        var dept = document.querySelector('input[name="dept"]:checked').value;
+
+
+        var row = "<tr>" + 
+
+                    "<td>" + name + "</td>" +
+                    "<td>" + email + "</td>" + 
+                    "<td>" + age + "</td>" + 
+                    "<td>" + gender + "</td>" + 
+                    "<td>" + stdid + "</td>" + 
+                    "<td>" + session + "</td>" + 
+                    "<td>" + dept + "</td>" +
+                    "</tr>"
+
+
+        tablebody.innerHTML = tablebody.innerHTML + row;   
+        
+        
+
+        var list =  
+
+"<li>" + name + "</li>" +
+"<li>" + email + "</li>" + 
+"<li>" + age + "</li>" + 
+"<li>" + gender + "</li>" + 
+"<li>" + stdid + "</li>" + 
+"<li>" + session + "</li>" + 
+"<li>" + dept + "</li>" 
+
+
+tablebody.innerHTML = tablebody.innerHTML + list;
+
+    }) 
+
+
+    form.addEventListener("submit" , function (event){
+        event.preventDefault() ;
+
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var name = fname + lname;
+        
+        var email = document.getElementById("email").value;
+        
+        var age = document.getElementById("age").value;
+
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+
+        var stdid = document.getElementById("stdid").value;
+
+        var session = document.getElementById("session").value;
+
+        var dept = document.querySelector('input[name="dept"]:checked').value;
+
+
+        var list = 
+                    "<td>" + name + "</td>" +
+                    "<td>" + email + "</td>" + 
+                    "<td>" + age + "</td>" + 
+                    "<td>" + gender + "</td>" + 
+                    "<td>" + stdid + "</td>" + 
+                    "<td>" + session + "</td>" + 
+                    "<li>" + dept + "</td>" +
+                    "</tr>"
+
+
+        tablebody.innerHTML = tablebody.innerHTML + row;   
+        
+        
+
+        var list =  
+
+"<li>" + name + "</li>" +
+"<li>" + email + "</li>" + 
+"<li>" + age + "</li>" + 
+"<li>" + gender + "</li>" + 
+"<li>" + stdid + "</li>" + 
+"<li>" + session + "</li>" + 
+"<li>" + dept + "</li>" 
+
+
+tablebody.innerHTML = tablebody.innerHTML + list;
+
+    }) 
+
+</script>
+
+
+
+</html>
